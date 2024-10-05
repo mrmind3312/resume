@@ -3,6 +3,16 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   ssr: false,
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Russo+One&display=swap',
+        },
+      ],
+    },
+  },
   runtimeConfig: {
     app: {
       alegraApiKey: process.env.ALEGRA_API_KEY,
