@@ -1,103 +1,63 @@
-Claro, aquí tienes un ejemplo de documentación en español para tu aplicación en Nuxt.js:
+# Personal Portfolio Website
 
----
+This project is a personal portfolio website designed to showcase my skills, projects, and professional experience. It's built with modern web technologies to create an engaging and interactive user experience.
 
-# Documentación de la Aplicación Nuxt.js
+## Project Description
 
-## Descripción General
+This personal portfolio is a dynamic, single-page application that features a cyberpunk-inspired design with neon elements. It's designed to be visually striking while providing easy navigation and access to information about my work, skills, and contact details.
 
-Esta aplicación en Nuxt.js está diseñada para gestionar y promover la interacción con vendedores mediante una serie de características clave. Incluye administración de vendedores, búsqueda y selección de imágenes, votación de imágenes, clasificación de vendedores, y opciones para reclamar premios. Además, se integra con las APIs de Alegra y Pexels.
+## Getting Started
 
-## Características
+To set up this project for development, follow these steps:
 
-### 1. **Administración Básica de Vendedores**
-   - **Listar Vendedores**: Permite ver una lista de todos los vendedores registrados en la aplicación.
-   - **Crear Vendedores**: Permite agregar nuevos vendedores a la base de datos.
-
-### 2. **Buscador y Selector de Imágenes para Cada Vendedor**
-   - **Búsqueda de Imágenes**: Utiliza la API de Pexels para buscar imágenes que los vendedores pueden seleccionar para su perfil.
-   - **Selección de Imágenes**: Permite a los vendedores seleccionar imágenes de la búsqueda para asociarlas a su perfil.
-
-### 3. **Página de Votación de Imágenes al Estilo Tinder**
-   - **Interfaz de Votación**: Permite a los usuarios votar por imágenes de manera similar a la funcionalidad de Tinder, deslizando para indicar interés o desinterés en cada imagen.
-
-### 4. **Página de Ranking con la Lista de los Vendedores con Más Likes**
-   - **Ranking de Vendedores**: Muestra una lista de los vendedores que han recibido la mayor cantidad de likes, ordenados de mayor a menor.
-
-### 5. **Opción de Reclamar Premio para los Vendedores con 20 Votos o Más**
-   - **Reclamar Premio**: Permite a los vendedores que han recibido 20 o más votos reclamar un premio. La opción de reclamar el premio está disponible solo para los vendedores que cumplen con este criterio.
-
-### 6. **Integración con APIs**
-   - **API de Alegra**: Utilizada para gestionar información relacionada con los vendedores y sus premios.
-   - **API de Pexels**: Utilizada para la búsqueda y selección de imágenes.
-
-## Instalación y Configuración
-
-1. **Clonación del Repositorio**
-   ```bash
-   git clone https://github.com/mrmind3312/world-images.git
-   cd world-images
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/your-portfolio-repo.git
+   cd your-portfolio-repo
    ```
 
-2. **Instalación de Dependencias**
-   ```bash
-   yarn install
+2. Install dependencies:
+   ```
+   npm install
    ```
 
-3. **Configuración del Entorno**
-   - Crea un archivo `.env` en la raíz del proyecto y añade las siguientes variables de entorno:
-     ```bash
-     ALEGRA_API_KEY=<TU_API_KEY_DE_ALEGRA>
-     ALEGRA_API_EMAIL=<TU_EMAIL_DE_ALEGRA>
-     ALEGRA_API_URL=https://api.alegra.com/api/v1/
-     PEXELS_API_KEY=<TU_API_KEY_DE_PEXELS>
-     ```
-
-4. **Ejecución de la Aplicación**
-   ```bash
-   yarn dev
+3. Start the development server:
+   ```
+   npm run dev
    ```
 
-   La aplicación estará disponible en `http://localhost:3000`.
+4. Open your browser and navigate to `http://localhost:3000` to view the site.
 
-## Uso
+## Technologies Used
 
-### Administración de Vendedores
+- Vue.js 3
+- Nuxt.js 3
+- Tailwind CSS
+- Custom CSS for neon effects
 
-- **Listar Vendedores**: Navega a la página de administración para ver todos los vendedores.
-- **Crear Vendedores**: Utiliza el formulario en la página de administración para agregar nuevos vendedores.
+## Project Structure
 
-### Buscador y Selector de Imágenes
+- `pages/`: Contains the main pages of the application
+- `components/`: Reusable Vue components
+- `assets/`: Static assets like images and global styles
+- `public/`: Public files that are served directly
 
-- **Buscar Imágenes**: Utiliza el buscador para encontrar imágenes en Pexels.
-- **Seleccionar Imágenes**: Elige imágenes de los resultados de búsqueda y asócialas al perfil del vendedor.
+## Customization
 
-### Votación de Imágenes
+To customize this portfolio for your own use:
 
-- **Votar**: Desliza las imágenes para votar, al estilo de Tinder. Los votos se registran automáticamente.
+1. Update the content in the Vue components to reflect your personal information and projects.
+2. Modify the color scheme in the CSS files to match your preferred style.
+3. Add or remove sections as needed to best represent your work and skills.
 
-### Página de Ranking
+## Deployment
 
-- **Ver Ranking**: Consulta la página de ranking para ver los vendedores con más likes. Los vendedores están ordenados por la cantidad de likes recibidos.
+This project can be easily deployed to platforms like Netlify or Vercel. Refer to their documentation for specific deployment instructions.
 
-### Reclamar Premio
+## Contributing
 
-- **Reclamar Premio**: Los vendedores con 20 o más votos pueden reclamar su premio desde su perfil.
+As this is a personal portfolio project, contributions are not typically accepted. However, if you have suggestions or find bugs, please feel free to open an issue in the repository.
 
-## Integración con APIs
+## License
 
-- **Alegra API**: Utilizada para operaciones relacionadas con la gestión de vendedores y premios. Asegúrate de que las credenciales están configuradas en el archivo `.env`.
-- **Pexels API**: Utilizada para la búsqueda de imágenes. Las credenciales deben estar configuradas en el archivo `.env`.
-
-## Contribución
-
-Si deseas contribuir a este proyecto, por favor sigue estos pasos:
-
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b nombre-de-la-rama`).
-3. Realiza tus cambios.
-4. Envía un pull request.
-
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT.
+This project is open source and available under the [MIT License](LICENSE).
