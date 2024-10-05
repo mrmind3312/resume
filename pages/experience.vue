@@ -149,7 +149,7 @@ const getSelectedExperience = computed(() => {
       class="experience-container w-full max-w-[60%] backdrop-blur-md bg-black/30 rounded-lg p-8"
     >
       <h1 class="text-5xl font-bold text-white mb-8 text-center">
-        Experiencia Laboral
+        Work Experience
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="company-names">
@@ -164,27 +164,35 @@ const getSelectedExperience = computed(() => {
           </ul>
         </div>
         <div class="details">
-          <div v-if="getSelectedExperience" class="experience-details active">
-            <h2 class="text-xl text-white mb-2">
+          <div
+            v-if="getSelectedExperience"
+            class="experience-details active h-[70vh] overflow-y-auto p-4"
+          >
+            <h2 class="text-2xl font-bold text-white mb-3">
               {{ getSelectedExperience.position }}
             </h2>
-            <p class="text-gray-300 mb-2">
+            <p class="text-lg text-gray-300 mb-3">
               {{ getSelectedExperience.duration }}
             </p>
-            <p class="text-gray-300 mb-4">
+            <p class="text-base text-gray-300 mb-5 leading-relaxed">
               {{ getSelectedExperience.description }}
             </p>
-            <ul class="achievements mb-4">
+            <h3 class="text-xl font-semibold text-white mb-3">Achievements:</h3>
+            <ul class="achievements mb-5 space-y-2">
               <li
                 v-for="(
                   achievement, index
                 ) in getSelectedExperience.achievements"
                 :key="index"
-                class="text-gray-400 mb-1"
+                class="text-gray-400 pl-4 relative"
               >
-                - {{ achievement }}
+                <span
+                  class="absolute left-0 top-2 w-2 h-2 bg-cyan-400 rounded-full"
+                ></span>
+                {{ achievement }}
               </li>
             </ul>
+            <h3 class="text-xl font-semibold text-white mb-3">Technologies:</h3>
             <div class="technology-tags">
               <NeonTag
                 v-for="(tech, index) in getSelectedExperience.technologies"
