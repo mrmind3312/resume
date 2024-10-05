@@ -6,39 +6,127 @@ import NeonTag from "~/components/NeonTag.vue";
 // Ejemplo de datos para la experiencia laboral utilizando tu información
 const experiences = [
   {
-    company: "Company A",
-    position: "Frontend Developer",
-    duration: "Ene 2019 - Dic 2020",
+    company: "LOMAX Technologies S.A.",
+    position: "Senior Software Developer",
+    duration: "Mayo 2018 - Actualidad",
     description:
-      "Trabajé en el desarrollo de aplicaciones web responsivas utilizando Vue.js y Tailwind CSS.",
+      "I work as a Senior Software Developer, responsible for the development and maintenance of the company and clients software products developed by us.",
     achievements: [
-      "Mejoré el rendimiento del sitio en un 30%",
-      "Dirigí un equipo de 4 desarrolladores",
+      "Improved site performance by 30%",
+      "Directed a team of 4 developers",
+      "Teach and prepare new developers to the team in 3 months.",
+      "Help a german startup to have their MVP in the market in 6 months and get the first investment round successfully.",
+      "Help to change all product focus from B2C to B2B2C for a german startup and gain a second investment round successfully.",
+      "Increase company product quality and help it to grow up in the software market in the first 3 years.",
+      "Pitched a new product to a german investor and get accepted the investment.",
+      "Help to solve problems in critical clients like CAR24 GmbH.",
     ],
-    technologies: ["VueJS", "Tailwind CSS", "JavaScript"],
+    technologies: [
+      "Vue.js",
+      "Bulma CSS",
+      "Ruby on Rails",
+      "Ruby",
+      "NodeJS",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Firebase",
+      "Amazon Web Services",
+      "PHP",
+      "Laravel",
+      "Linux",
+    ],
   },
   {
-    company: "Company B",
-    position: "Software Engineer",
-    duration: "Ene 2021 - Dic 2022",
-    description: "Desarrollé servicios backend utilizando Node.js y MongoDB.",
+    company: "Hyrd GmbH",
+    position: "Senior Web Developer",
+    duration: "August 2019 - October 2023",
+    description:
+      "Develop main business platform for this german startup focused on cover the talent adquisition problems for companies and students, company was a partner of LOMAX Technologies.",
     achievements: [
-      "Diseñé e implementé APIs RESTful",
-      "Optimizé consultas de bases de datos",
+      "Designed and implemented RESTful APIs",
+      "Optimize and improve database design and architecture.",
+      "Teach and prepare new developers to the team in 3 months.",
+      "Release MVP in 6 months and get the first investment round successfully.",
+      "Help to change all product focus from B2C to B2B2C and get a second investment round successfully.",
+      "Onboard new developers to the team and help then to improve their skills to be productive in the first month.",
+      "Create the bases for a new product that help students to find a job easier.",
+      "Implement usage of AI models to predict student performance and help then to get a job easier.",
+      "Help to contract a new CTO for the company and improve the team structure.",
+      "Help and support SOC (Security Operations Center) team to improve processes and tools to manage security incidents.",
     ],
-    technologies: ["NodeJS", "MongoDB", "ExpressJS"],
+    technologies: [
+      "Ruby on Rails",
+      "Python",
+      "AWS",
+      "Vue.js",
+      "Nuxt.js",
+      "PostgreSQL",
+      "RDS",
+      "Linux",
+      "Bulma CSS",
+    ],
   },
   {
-    company: "Company C",
-    position: "AI Researcher",
-    duration: "Ene 2023 - Presente",
+    company: "Publicidad Comercial MullenLowe / Publicentro de Guatemala",
+    position: "Full Stack Developer",
+    duration: "March 2016 - May 2018",
     description:
-      "Conduzco investigaciones sobre algoritmos de aprendizaje automático y sus aplicaciones.",
+      "Principal developer for this company, responsible of manage, develop and maintain the software products for their clients.",
     achievements: [
-      "Publicé 3 artículos en revistas reconocidas",
-      "Desarrollé un nuevo modelo de ML para predicciones",
+      "Increase work quality in a 60%",
+      "Increase work performance in a 50%",
+      "Increase client satisfaction in a 70%",
+      "Onboard new developers to the team and help them to improve their skills to be productive in the first two months.",
+      "Pitch and gain with new clients like Alimentos Maravilla S.A.",
+      "Pitch and gain new project from new clients like IRTRA S.A. and Cervecería Centro Americana S.A.",
+      "Help to improve the company structure and team to be more productive and efficient.",
     ],
-    technologies: ["Python", "TensorFlow", "Keras"],
+    technologies: [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "PostgreSQL",
+      "Linux",
+      "JavaScript",
+      "Vue.js",
+      "Bulma CSS",
+      "WordPress",
+      "Elementor",
+      "HTML",
+      "CSS",
+      "Java Android",
+      "Ionic",
+    ],
+  },
+  {
+    company: "Kronos S.A.",
+    position: "Full Stack Developer",
+    duration: "August 2014 - March 2016",
+    description:
+      "Principal developer for this company, responsible of manage, develop and maintain the software products for their clients.",
+    achievements: [
+      "Design, develop and maintain software main software product.",
+      "Release first version of the software product to the market in 3 months.",
+      "Pitch and gain new clients.",
+      "Pitch and gain the first big project with a new client.",
+    ],
+    technologies: [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Linux",
+      "JavaScript",
+      "Bootstrap CSS",
+      "JQuery",
+      "WordPress",
+      "Elementor",
+      "HTML",
+      "CSS",
+      "Java Android",
+      "REST API",
+      "SOAP API",
+    ],
   },
 ];
 
@@ -49,14 +137,20 @@ const selectExperience = (company) => {
 };
 
 const getSelectedExperience = computed(() => {
-  return experiences.find((exp) => exp.company === selectedCompany.value) || null;
+  return (
+    experiences.find((exp) => exp.company === selectedCompany.value) || null
+  );
 });
 </script>
 
 <template>
   <div class="min-h-screen flex justify-center items-center p-4">
-    <div class="experience-container w-full max-w-[60%] backdrop-blur-md bg-black/30 rounded-lg p-8">
-      <h1 class="text-5xl font-bold text-white mb-8 text-center">Experiencia Laboral</h1>
+    <div
+      class="experience-container w-full max-w-[60%] backdrop-blur-md bg-black/30 rounded-lg p-8"
+    >
+      <h1 class="text-5xl font-bold text-white mb-8 text-center">
+        Experiencia Laboral
+      </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="company-names">
           <ul>
@@ -74,11 +168,17 @@ const getSelectedExperience = computed(() => {
             <h2 class="text-xl text-white mb-2">
               {{ getSelectedExperience.position }}
             </h2>
-            <p class="text-gray-300 mb-2">{{ getSelectedExperience.duration }}</p>
-            <p class="text-gray-300 mb-4">{{ getSelectedExperience.description }}</p>
+            <p class="text-gray-300 mb-2">
+              {{ getSelectedExperience.duration }}
+            </p>
+            <p class="text-gray-300 mb-4">
+              {{ getSelectedExperience.description }}
+            </p>
             <ul class="achievements mb-4">
               <li
-                v-for="(achievement, index) in getSelectedExperience.achievements"
+                v-for="(
+                  achievement, index
+                ) in getSelectedExperience.achievements"
                 :key="index"
                 class="text-gray-400 mb-1"
               >
