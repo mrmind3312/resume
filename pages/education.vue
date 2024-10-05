@@ -4,16 +4,12 @@ import { ref } from "vue";
 // Educational institutions and descriptions using user's actual data
 const institutions = [
   {
-    name: "University A",
-    description: "Bachelor of Science in Computer Science - 2018",
+    name: "Universidad Mariano Galvez de Guatemala",
+    description: "Software Engineering - 2016",
   },
   {
-    name: "University B",
-    description: "Master of Science in Software Engineering - 2020",
-  },
-  {
-    name: "University C",
-    description: "Ph.D. in Artificial Intelligence - 2024",
+    name: "KINAL",
+    description: "High School Bachelor of Science in Computer Science - 2013",
   },
 ];
 
