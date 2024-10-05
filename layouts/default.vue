@@ -57,7 +57,7 @@ onMounted(() => {
         to="/"
         class="text-green-400 hover:underline"
       >
-        <NuxtIcon name="arrow-left" class="mr-2 animate-bounce" />Back to Home
+        <Icon name="hugeicons:home-06" class="text-white" />
       </NuxtLink>
     </nav>
 
