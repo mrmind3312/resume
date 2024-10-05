@@ -1,31 +1,44 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
+import NeonButton from "~/components/NeonButton.vue";
+import CompanyButton from "~/components/NeonButton.vue";
 
 // Ejemplo de datos para la experiencia laboral utilizando tu información
 const experiences = [
   {
-    company: 'Company A',
-    position: 'Frontend Developer',
-    duration: 'Ene 2019 - Dic 2020',
-    description: 'Trabajé en el desarrollo de aplicaciones web responsivas utilizando Vue.js y Tailwind CSS.',
-    achievements: ['Mejoré el rendimiento del sitio en un 30%', 'Dirigí un equipo de 4 desarrolladores'],
-    technologies: ['VueJS', 'Tailwind CSS', 'JavaScript'],
+    company: "Company A",
+    position: "Frontend Developer",
+    duration: "Ene 2019 - Dic 2020",
+    description:
+      "Trabajé en el desarrollo de aplicaciones web responsivas utilizando Vue.js y Tailwind CSS.",
+    achievements: [
+      "Mejoré el rendimiento del sitio en un 30%",
+      "Dirigí un equipo de 4 desarrolladores",
+    ],
+    technologies: ["VueJS", "Tailwind CSS", "JavaScript"],
   },
   {
-    company: 'Company B',
-    position: 'Software Engineer',
-    duration: 'Ene 2021 - Dic 2022',
-    description: 'Desarrollé servicios backend utilizando Node.js y MongoDB.',
-    achievements: ['Diseñé e implementé APIs RESTful', 'Optimizé consultas de bases de datos'],
-    technologies: ['NodeJS', 'MongoDB', 'ExpressJS'],
+    company: "Company B",
+    position: "Software Engineer",
+    duration: "Ene 2021 - Dic 2022",
+    description: "Desarrollé servicios backend utilizando Node.js y MongoDB.",
+    achievements: [
+      "Diseñé e implementé APIs RESTful",
+      "Optimizé consultas de bases de datos",
+    ],
+    technologies: ["NodeJS", "MongoDB", "ExpressJS"],
   },
   {
-    company: 'Company C',
-    position: 'AI Researcher',
-    duration: 'Ene 2023 - Presente',
-    description: 'Conduzco investigaciones sobre algoritmos de aprendizaje automático y sus aplicaciones.',
-    achievements: ['Publicé 3 artículos en revistas reconocidas', 'Desarrollé un nuevo modelo de ML para predicciones'],
-    technologies: ['Python', 'TensorFlow', 'Keras'],
+    company: "Company C",
+    position: "AI Researcher",
+    duration: "Ene 2023 - Presente",
+    description:
+      "Conduzco investigaciones sobre algoritmos de aprendizaje automático y sus aplicaciones.",
+    achievements: [
+      "Publicé 3 artículos en revistas reconocidas",
+      "Desarrollé un nuevo modelo de ML para predicciones",
+    ],
+    technologies: ["Python", "TensorFlow", "Keras"],
   },
 ];
 
@@ -36,7 +49,9 @@ const selectExperience = (company) => {
 };
 
 const getSelectedExperience = computed(() => {
-  return experiences.find(exp => exp.company === selectedCompany.value) || null;
+  return (
+    experiences.find((exp) => exp.company === selectedCompany.value) || null
+  );
 });
 </script>
 
@@ -46,34 +61,30 @@ const getSelectedExperience = computed(() => {
     <div class="experience-container grid grid-cols-2 gap-6">
       <div class="company-names">
         <ul>
-          <li
+          <NeonButton
             v-for="experience in experiences"
             :key="experience.company"
-            class="company-name"
-            :class="{ active: selectedCompany === experience.company }"
-            @click="selectExperience(experience.company)"
-          >
-            {{ experience.company }}
-            <span
-              class="neon-line"
-              :style="{
-                backgroundColor: selectedCompany === experience.company ? 'rgba(255, 255, 0, 1)' : 'rgba(255, 255, 0, 0.2)',
-                boxShadow: selectedCompany === experience.company ? '0 0 10px rgba(255, 255, 0, 0.8)' : 'none'
-              }"
-            ></span>
-          </li>
+            :company="experience.company"
+            :is-active="selectedCompany === experience.company"
+            @select="selectExperience"
+          />
         </ul>
       </div>
       <div class="details">
-        <div
-          v-if="getSelectedExperience"
-          class="experience-details active"
-        >
-          <h2 class="text-xl text-white">{{ getSelectedExperience.position }}</h2>
+        <div v-if="getSelectedExperience" class="experience-details active">
+          <h2 class="text-xl text-white">
+            {{ getSelectedExperience.position }}
+          </h2>
           <p class="text-gray-300">{{ getSelectedExperience.duration }}</p>
           <p class="text-gray-300">{{ getSelectedExperience.description }}</p>
           <ul class="achievements">
-            <li v-for="(achievement, index) in getSelectedExperience.achievements" :key="index" class="text-gray-400">- {{ achievement }}</li>
+            <li
+              v-for="(achievement, index) in getSelectedExperience.achievements"
+              :key="index"
+              class="text-gray-400"
+            >
+              - {{ achievement }}
+            </li>
           </ul>
           <div class="technology-tags">
             <span
@@ -98,27 +109,6 @@ const getSelectedExperience = computed(() => {
 
 .company-names {
   padding: 20px;
-}
-
-.company-name {
-  cursor: pointer;
-  padding: 12px;
-  color: rgba(255, 255, 255, 0.8); /* Color del texto normal */
-  position: relative;
-  transition: color 0.3s;
-  font-weight: bold;
-}
-
-.company-name:hover {
-  color: rgba(255, 255, 255, 1); /* Color completo al pasar el mouse */
-}
-
-.neon-line {
-  content: '';
-  display: block;
-  height: 2px; /* Altura de la línea neón */
-  transition: all 0.3s ease;
-  margin-top: 5px;
 }
 
 .experience-details {
