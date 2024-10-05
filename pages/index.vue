@@ -1,62 +1,14 @@
 <script setup>
-import { onMounted, ref } from "vue";
-
 definePageMeta({
   name: "Welcome to my portfolio",
   description: "This is the home page of my portfolio",
-});
-
-const canvasRef = ref(null);
-
-// Matrix effect logic on mounted
-onMounted(() => {
-  const canvas = canvasRef.value;
-  const ctx = canvas.getContext("2d");
-
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const letters = "01";
-  const fontSize = 16;
-  const columns = canvas.width / fontSize; // number of columns for the rain
-  const drops = Array.from({ length: columns }).fill(1); // initial y positions for the rain drops
-
-  function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // translucent background to create trailing effect
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "rgba(0, 255, 0, 0.3)"; // lighter green text with reduced opacity for subtle effect
-    ctx.font = `${fontSize}px monospace`;
-
-    drops.forEach((y, i) => {
-      const text = letters[Math.floor(Math.random() * letters.length)];
-      ctx.fillText(text, i * fontSize, y * fontSize);
-
-      if (y * fontSize > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-
-      drops[i]++;
-    });
-  }
-
-  const interval = setInterval(draw, 30);
-
-  // Cleanup on component unmount
-  return () => clearInterval(interval);
 });
 </script>
 
 <template>
   <div
-    class="w-screen h-screen bg-black text-green-400 flex flex-col justify-center items-center"
+    class="w-screen h-screen text-green-400 flex flex-col justify-center items-center"
   >
-    <!-- Matrix Effect Canvas Background -->
-    <canvas
-      ref="canvasRef"
-      class="fixed top-0 left-0 z-0 w-full h-full"
-    ></canvas>
-
     <!-- Welcome Section (Layered on top of canvas) -->
     <div class="z-10 text-center max-w-2xl px-4">
       <HoloImage />
