@@ -19,12 +19,12 @@ const toggleFlip = () => {
   isFlipped.value = !isFlipped.value;
 };
 
-// Cyberpunk-inspired colors
+// Cyberpunk-inspired colors with rgba
 const colors = [
-  'from-cyan-500 to-blue-500',
-  'from-purple-500 to-pink-500',
-  'from-yellow-500 to-red-500',
-  'from-green-500 to-teal-500',
+  'from-cyan-500/70 to-blue-500/70',
+  'from-purple-500/70 to-pink-500/70',
+  'from-yellow-500/70 to-red-500/70',
+  'from-green-500/70 to-teal-500/70',
 ];
 
 const cardColor = computed(() => {
@@ -71,6 +71,15 @@ const expertiseOrder = computed(() => getExpertiseOrder(props.skill.level));
   perspective: 1000px;
   cursor: pointer;
   background-image: linear-gradient(45deg, var(--tw-gradient-from), var(--tw-gradient-to));
+  border: 2px solid transparent;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+              0 0 10px rgba(255, 255, 255, 0.5),
+              0 0 15px rgba(255, 255, 255, 0.5),
+              0 0 20px var(--neon-color),
+              0 0 35px var(--neon-color),
+              0 0 40px var(--neon-color),
+              0 0 50px var(--neon-color),
+              0 0 75px var(--neon-color);
 }
 
 .skill-inner {
@@ -98,9 +107,6 @@ const expertiseOrder = computed(() => getExpertiseOrder(props.skill.level));
   align-items: center;
   border-radius: 0.5rem;
   padding: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.7);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .skill-front {
@@ -112,7 +118,14 @@ const expertiseOrder = computed(() => getExpertiseOrder(props.skill.level));
 }
 
 .skill-card:hover {
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+              0 0 10px rgba(255, 255, 255, 0.8),
+              0 0 15px rgba(255, 255, 255, 0.8),
+              0 0 20px var(--neon-color),
+              0 0 35px var(--neon-color),
+              0 0 40px var(--neon-color),
+              0 0 50px var(--neon-color),
+              0 0 75px var(--neon-color);
 }
 
 /* Cyberpunk-inspired text glow */
