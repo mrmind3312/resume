@@ -11,7 +11,7 @@ onMounted(() => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const letters = "01";
+  const letters = "01ABCDFGHIJKLMNOPQRSTUVWXYZ";
   const fontSize = 16;
   const columns = canvas.width / fontSize; // number of columns for the rain
   const drops = Array.from({ length: columns }).fill(1); // initial y positions for the rain drops
