@@ -14,12 +14,7 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    app: {
-      alegraApiKey: process.env.ALEGRA_API_KEY,
-      alegraApiEmail: process.env.ALEGRA_API_EMAIL,
-      alegraApiUrl: process.env.ALEGRA_API_URL,
-      pexelsApiKey: process.env.PEXELS_API_KEY,
-    },
+    app: {},
   },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
   tailwindcss: {
