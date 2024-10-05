@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import NeonButton from "~/components/NeonButton.vue";
-import CompanyButton from "~/components/NeonButton.vue";
+import NeonTag from "~/components/NeonTag.vue";
 
 // Ejemplo de datos para la experiencia laboral utilizando tu información
 const experiences = [
@@ -49,9 +49,7 @@ const selectExperience = (company) => {
 };
 
 const getSelectedExperience = computed(() => {
-  return (
-    experiences.find((exp) => exp.company === selectedCompany.value) || null
-  );
+  return experiences.find((exp) => exp.company === selectedCompany.value) || null;
 });
 </script>
 
@@ -87,13 +85,11 @@ const getSelectedExperience = computed(() => {
             </li>
           </ul>
           <div class="technology-tags">
-            <span
+            <NeonTag
               v-for="(tech, index) in getSelectedExperience.technologies"
               :key="index"
-              class="tech-tag"
-            >
-              {{ tech }}
-            </span>
+              :tag="tech"
+            />
           </div>
         </div>
       </div>
@@ -132,22 +128,5 @@ const getSelectedExperience = computed(() => {
   margin-top: 12px;
 }
 
-.tech-tag {
-  display: inline-block;
-  background-color: rgba(255, 0, 255, 0.7); /* Neón magenta */
-  border: 2px solid rgba(255, 0, 255, 1); /* Borde neón magenta brillante */
-  color: black; /* Texto oscuro para contraste */
-  padding: 4px 8px;
-  border-radius: 4px;
-  margin-right: 4px;
-  margin-top: 4px;
-}
-
-.tech-tag:hover {
-  opacity: 0.9; /* Disminuir ligeramente la opacidad al pasar el mouse */
-}
-
-.company-name.active {
-  color: rgba(255, 255, 0, 1); /* Bright yellow text for active state */
-}
+/* Remove the .tech-tag styles as they're no longer needed */
 </style>
