@@ -54,42 +54,44 @@ const getSelectedExperience = computed(() => {
 </script>
 
 <template>
-  <div class="h-screen flex flex-col items-center p-4">
-    <h1 class="text-5xl font-bold text-white mb-8">Experiencia Laboral</h1>
-    <div class="experience-container grid grid-cols-2 gap-6">
-      <div class="company-names">
-        <ul>
-          <NeonButton
-            v-for="experience in experiences"
-            :key="experience.company"
-            :company="experience.company"
-            :is-active="selectedCompany === experience.company"
-            @select="selectExperience"
-          />
-        </ul>
-      </div>
-      <div class="details">
-        <div v-if="getSelectedExperience" class="experience-details active">
-          <h2 class="text-xl text-white">
-            {{ getSelectedExperience.position }}
-          </h2>
-          <p class="text-gray-300">{{ getSelectedExperience.duration }}</p>
-          <p class="text-gray-300">{{ getSelectedExperience.description }}</p>
-          <ul class="achievements">
-            <li
-              v-for="(achievement, index) in getSelectedExperience.achievements"
-              :key="index"
-              class="text-gray-400"
-            >
-              - {{ achievement }}
-            </li>
-          </ul>
-          <div class="technology-tags">
-            <NeonTag
-              v-for="(tech, index) in getSelectedExperience.technologies"
-              :key="index"
-              :tag="tech"
+  <div class="min-h-screen flex justify-center items-center p-4">
+    <div class="experience-container w-full max-w-[60%] backdrop-blur-md bg-black/30 rounded-lg p-8">
+      <h1 class="text-5xl font-bold text-white mb-8 text-center">Experiencia Laboral</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="company-names">
+          <ul>
+            <NeonButton
+              v-for="experience in experiences"
+              :key="experience.company"
+              :company="experience.company"
+              :is-active="selectedCompany === experience.company"
+              @select="selectExperience"
             />
+          </ul>
+        </div>
+        <div class="details">
+          <div v-if="getSelectedExperience" class="experience-details active">
+            <h2 class="text-xl text-white mb-2">
+              {{ getSelectedExperience.position }}
+            </h2>
+            <p class="text-gray-300 mb-2">{{ getSelectedExperience.duration }}</p>
+            <p class="text-gray-300 mb-4">{{ getSelectedExperience.description }}</p>
+            <ul class="achievements mb-4">
+              <li
+                v-for="(achievement, index) in getSelectedExperience.achievements"
+                :key="index"
+                class="text-gray-400 mb-1"
+              >
+                - {{ achievement }}
+              </li>
+            </ul>
+            <div class="technology-tags">
+              <NeonTag
+                v-for="(tech, index) in getSelectedExperience.technologies"
+                :key="index"
+                :tag="tech"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -99,8 +101,7 @@ const getSelectedExperience = computed(() => {
 
 <style scoped>
 .experience-container {
-  width: 100%;
-  max-width: 1200px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
 .company-names {
@@ -108,25 +109,26 @@ const getSelectedExperience = computed(() => {
 }
 
 .experience-details {
-  display: none; /* Ocultar detalles inicialmente */
+  display: none;
   padding: 12px;
-  background-color: rgba(0, 255, 255, 0.5); /* Fondo neón cian */
-  border: 2px solid rgba(0, 255, 255, 1); /* Borde neón cian brillante */
+  background-color: rgba(0, 255, 255, 0.1);
+  border: 2px solid rgba(0, 255, 255, 0.3);
   border-radius: 8px;
-  margin-top: 12px;
+  transition: all 0.3s ease;
 }
 
 .experience-details.active {
-  display: block; /* Mostrar detalles si está activo */
+  display: block;
 }
 
 .achievements {
-  margin-top: 8px;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .technology-tags {
-  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-
-/* Remove the .tech-tag styles as they're no longer needed */
 </style>
