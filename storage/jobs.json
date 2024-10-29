@@ -1,0 +1,121 @@
+[
+  {
+    "company": "LOMAX Technologies S.A.",
+    "position": "Senior Software Developer",
+    "duration": "Mayo 2018 - Actualidad",
+    "description": "I work as a Senior Software Developer, responsible for the development and maintenance of the company and clients' software products developed by us.",
+    "achievements": [
+      "Improved site performance by 30%",
+      "Directed a team of 4 developers",
+      "Teach and prepare new developers to the team in 3 months.",
+      "Help a German startup to have their MVP in the market in 6 months and get the first investment round successfully.",
+      "Help to change all product focus from B2C to B2B2C for a German startup and gain a second investment round successfully.",
+      "Increase company product quality and help it to grow in the software market in the first 3 years.",
+      "Pitched a new product to a German investor and get accepted the investment.",
+      "Help to solve problems in critical clients like CAR24 GmbH."
+    ],
+    "technologies": [
+      "Vue.js",
+      "Bulma CSS",
+      "Ruby on Rails",
+      "Ruby",
+      "NodeJS",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Firebase",
+      "Amazon Web Services",
+      "PHP",
+      "Laravel",
+      "Linux"
+    ]
+  },
+  {
+    "company": "Hyrd GmbH",
+    "position": "Senior Web Developer",
+    "duration": "August 2019 - October 2023",
+    "description": "Develop main business platform for this German startup focused on covering the talent acquisition problems for companies and students, company was a partner of LOMAX Technologies.",
+    "achievements": [
+      "Designed and implemented RESTful APIs",
+      "Optimize and improve database design and architecture.",
+      "Teach and prepare new developers to the team in 3 months.",
+      "Release MVP in 6 months and get the first investment round successfully.",
+      "Help to change all product focus from B2C to B2B2C and get a second investment round successfully.",
+      "Onboard new developers to the team and help them to improve their skills to be productive in the first month.",
+      "Create the bases for a new product that helps students to find a job easier.",
+      "Implement usage of AI models to predict student performance and help them get a job easier.",
+      "Help to contract a new CTO for the company and improve the team structure.",
+      "Help and support SOC (Security Operations Center) team to improve processes and tools to manage security incidents."
+    ],
+    "technologies": [
+      "Ruby on Rails",
+      "Python",
+      "AWS",
+      "Vue.js",
+      "Nuxt.js",
+      "PostgreSQL",
+      "RDS",
+      "Linux",
+      "Bulma CSS"
+    ]
+  },
+  {
+    "company": "Publicidad Comercial MullenLowe / Publicentro de Guatemala",
+    "position": "Full Stack Developer",
+    "duration": "March 2016 - May 2018",
+    "description": "Principal developer for this company, responsible for managing, developing, and maintaining the software products for their clients.",
+    "achievements": [
+      "Increase work quality by 60%",
+      "Increase work performance by 50%",
+      "Increase client satisfaction by 70%",
+      "Onboard new developers to the team and help them improve their skills to be productive in the first two months.",
+      "Pitch and gain new clients like Alimentos Maravilla S.A.",
+      "Pitch and gain new projects from new clients like IRTRA S.A. and Cervecería Centro Americana S.A.",
+      "Help to improve the company structure and team to be more productive and efficient."
+    ],
+    "technologies": [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "PostgreSQL",
+      "Linux",
+      "JavaScript",
+      "Vue.js",
+      "Bulma CSS",
+      "WordPress",
+      "Elementor",
+      "HTML",
+      "CSS",
+      "Java Android",
+      "Ionic"
+    ]
+  },
+  {
+    "company": "Kronos S.A.",
+    "position": "Full Stack Developer",
+    "duration": "August 2014 - March 2016",
+    "description": "Principal developer for this company, responsible for managing, developing, and maintaining the software products for their clients.",
+    "achievements": [
+      "Design, develop and maintain the main software product.",
+      "Release first version of the software product to the market in 3 months.",
+      "Pitch and gain new clients.",
+      "Pitch and gain the first big project with a new client."
+    ],
+    "technologies": [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Linux",
+      "JavaScript",
+      "Bootstrap CSS",
+      "JQuery",
+      "WordPress",
+      "Elementor",
+      "HTML",
+      "CSS",
+      "Java Android",
+      "REST API",
+      "SOAP API"
+    ]
+  }
+]
