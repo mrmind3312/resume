@@ -25,13 +25,17 @@ const randomNeonColor = computed(() => {
 });
 
 const neonStyle = computed(() => ({
-  color: isHovered.value ? randomNeonColor.value : 'rgba(255, 255, 255, 0.7)',
-  textShadow: isHovered.value ? `0 0 5px ${randomNeonColor.value}` : 'none',
+  color: isHovered.value
+    ? randomNeonColor.value
+    : randomNeonColor.value,
+  textShadow: isHovered.value ? `0 0 5px ${randomNeonColor.value}` : "none",
 }));
 
 const underlineStyle = computed(() => ({
-  backgroundColor: isHovered.value ? randomNeonColor.value : 'rgba(255, 255, 255, 0.3)',
-  boxShadow: isHovered.value ? `0 0 5px ${randomNeonColor.value}` : 'none',
+  backgroundColor: isHovered.value
+    ? randomNeonColor.value
+    : "rgba(255, 255, 255, 0.3)",
+  boxShadow: isHovered.value ? `0 0 5px ${randomNeonColor.value}` : "none",
 }));
 </script>
 
@@ -57,6 +61,7 @@ const underlineStyle = computed(() => ({
   font-weight: bold;
   transition: all 0.3s ease;
   cursor: pointer;
+  filter: brightness(0.4);
 }
 
 .neon-underline {
@@ -67,5 +72,10 @@ const underlineStyle = computed(() => ({
   width: 100%;
   height: 2px;
   transition: all 0.3s ease;
+  filter: brightness(0.4);
+}
+
+.neon-tag:hover, .neon-underline:hover{
+  filter: brightness(100);
 }
 </style>
