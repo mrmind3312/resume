@@ -1,14 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue';
+import jsonSkills from "~/storage/skill.json"
 
-const skills = ref([
-  { name: 'Vue.js', level: 'Expert', description: 'Advanced frontend framework' },
-  { name: 'React', level: 'Advanced', description: 'Popular UI library' },
-  { name: 'Node.js', level: 'Intermediate', description: 'Server-side JavaScript runtime' },
-  { name: 'Python', level: 'Expert', description: 'Versatile programming language' },
-  { name: 'Docker', level: 'Beginner', description: 'Containerization platform' },
-  { name: 'GraphQL', level: 'Intermediate', description: 'API query language' },
-]);
+const skills = ref(jsonSkills);
 
 const shuffledSkills = computed(() => {
   return [...skills.value].sort(() => Math.random() - 0.5);

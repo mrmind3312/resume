@@ -9,9 +9,9 @@ const formData = ref({
 });
 
 const contactInfo = {
-  email: "contact@example.com",
-  whatsapp: "+1234567890",
-  linkedin: "https://www.linkedin.com/in/yourprofile",
+  email: "josuemente@hotmail.com",
+  whatsapp: "+50235269870",
+  linkedin: "https://www.linkedin.com/in/josu%C3%A9-mente-6547488a/",
 };
 
 const neonColors = [

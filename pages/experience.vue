@@ -2,95 +2,92 @@
 import { ref, computed } from "vue";
 import NeonButton from "~/components/NeonButton.vue";
 import NeonTag from "~/components/NeonTag.vue";
+import jsonJobs from "~/storage/jobs.json";
 
-// Ejemplo de datos para la experiencia laboral utilizando tu información
-const experiences = [
-  {
-    company: "Company A",
-    position: "Frontend Developer",
-    duration: "Ene 2019 - Dic 2020",
-    description:
-      "Trabajé en el desarrollo de aplicaciones web responsivas utilizando Vue.js y Tailwind CSS.",
-    achievements: [
-      "Mejoré el rendimiento del sitio en un 30%",
-      "Dirigí un equipo de 4 desarrolladores",
-    ],
-    technologies: ["VueJS", "Tailwind CSS", "JavaScript"],
-  },
-  {
-    company: "Company B",
-    position: "Software Engineer",
-    duration: "Ene 2021 - Dic 2022",
-    description: "Desarrollé servicios backend utilizando Node.js y MongoDB.",
-    achievements: [
-      "Diseñé e implementé APIs RESTful",
-      "Optimizé consultas de bases de datos",
-    ],
-    technologies: ["NodeJS", "MongoDB", "ExpressJS"],
-  },
-  {
-    company: "Company C",
-    position: "AI Researcher",
-    duration: "Ene 2023 - Presente",
-    description:
-      "Conduzco investigaciones sobre algoritmos de aprendizaje automático y sus aplicaciones.",
-    achievements: [
-      "Publicé 3 artículos en revistas reconocidas",
-      "Desarrollé un nuevo modelo de ML para predicciones",
-    ],
-    technologies: ["Python", "TensorFlow", "Keras"],
-  },
-];
+const experiences = ref(jsonJobs);
+const selectedExperience = ref(null);
+const isModalOpen = ref(false);
 
-const selectedCompany = ref(null);
-
-const selectExperience = (company) => {
-  selectedCompany.value = selectedCompany.value === company ? null : company;
+const openModal = (experience) => {
+  selectedExperience.value = experience;
+  isModalOpen.value = true;
 };
 
-const getSelectedExperience = computed(() => {
-  return experiences.find((exp) => exp.company === selectedCompany.value) || null;
-});
+const closeModal = () => {
+  selectedExperience.value = null;
+  isModalOpen.value = false;
+};
+
+const getSelectedExperience = computed(() => selectedExperience.value);
 </script>
 
 <template>
   <div class="min-h-screen flex justify-center items-center p-4">
-    <div class="experience-container w-full max-w-[60%] backdrop-blur-md bg-black/30 rounded-lg p-8">
-      <h1 class="text-5xl font-bold text-white mb-8 text-center">Experiencia Laboral</h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="company-names">
-          <ul>
-            <NeonButton
-              v-for="experience in experiences"
-              :key="experience.company"
-              :company="experience.company"
-              :is-active="selectedCompany === experience.company"
-              @select="selectExperience"
-            />
-          </ul>
+    <div class="experience-container w-full max-w-[90%] md:max-w-[70%] p-8">
+      <h1 class="text-5xl font-bold text-white mb-8 text-center">
+        Work Experience
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+        <div
+          v-for="experience in experiences"
+          :key="experience.company"
+          class="experience-card bg-white/55 backdrop-blur-md rounded-lg p-4 cursor-pointer transition-all duration-500 text-center pt-auto"
+          @click="openModal(experience)"
+        >
+          <h2 class="text-2xl font-bold text-white mb-1">
+            {{ experience.company }}
+          </h2>
+          <p class="text-gray-300 has-text-weight-bold">
+            {{ experience.duration }}
+          </p>
         </div>
-        <div class="details">
-          <div v-if="getSelectedExperience" class="experience-details active">
-            <h2 class="text-xl text-white mb-2">
-              {{ getSelectedExperience.position }}
-            </h2>
-            <p class="text-gray-300 mb-2">{{ getSelectedExperience.duration }}</p>
-            <p class="text-gray-300 mb-4">{{ getSelectedExperience.description }}</p>
-            <ul class="achievements mb-4">
-              <li
-                v-for="(achievement, index) in getSelectedExperience.achievements"
-                :key="index"
-                class="text-gray-400 mb-1"
-              >
-                - {{ achievement }}
-              </li>
-            </ul>
-            <div class="technology-tags">
-              <NeonTag
-                v-for="(tech, index) in getSelectedExperience.technologies"
-                :key="index"
-                :tag="tech"
-              />
+      </div>
+
+      <!-- Modal for displaying selected experience details -->
+      <div v-if="isModalOpen" class="modal-overlay" @click.self="closeModal">
+        <div
+          class="modal-content max-w-5xl mx-auto p-6 bg-white/70 rounded-lg backdrop-blur-lg relative"
+        >
+          <h2 class="text-2xl font-bold text-green-950 mb-3 text-center">
+            {{ getSelectedExperience.position }}
+          </h2>
+          <div class="modal-body flex flex-col md:flex-row gap-6">
+            <!-- Left Column: Position, Description, and Technologies -->
+            <div class="flex-1">
+              <p class="text-green-800 mb-5 leading-relaxed">
+                {{ getSelectedExperience.description }}
+              </p>
+              <h3 class="text-xl font-semibold text-green-950 mb-3">
+                Technologies:
+              </h3>
+              <div class="technology-tags flex flex-wrap gap-2">
+                <NeonTag
+                  v-for="(tech, index) in getSelectedExperience.technologies"
+                  :key="index"
+                  :tag="tech"
+                />
+              </div>
+            </div>
+
+            <!-- Right Column: Achievements -->
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold text-green-950 mb-3">
+                Achievements:
+              </h3>
+              <ul class="achievements mb-5 space-y-2">
+                <li
+                  v-for="(
+                    achievement, index
+                  ) in getSelectedExperience.achievements"
+                  :key="index"
+                  class="text-green-700 pl-4 relative"
+                >
+                  <span
+                    class="absolute left-0 top-2 w-2 h-2 bg-green-600 rounded-full"
+                  ></span>
+                  {{ achievement }}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -104,31 +101,56 @@ const getSelectedExperience = computed(() => {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
-.company-names {
+.experience-card {
+  position: relative;
+  height: 200px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
   padding: 20px;
-}
-
-.experience-details {
-  display: none;
-  padding: 12px;
-  background-color: rgba(0, 255, 255, 0.1);
-  border: 2px solid rgba(0, 255, 255, 0.3);
   border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.experience-details.active {
-  display: block;
-}
-
-.achievements {
-  list-style-type: none;
-  padding-left: 0;
 }
 
 .technology-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 </style>

@@ -11,7 +11,39 @@ onMounted(() => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const letters = "01";
+  const letters = [
+    "💻", // Laptop
+    "🖥️", // Desktop Computer
+    "⌨️", // Keyboard
+    "🖱️", // Mouse
+    "🖲️", // Trackball
+    "📱", // Mobile Phone
+    "💾", // Floppy Disk
+    "💿", // CD
+    "📀", // DVD
+    "🧑‍💻", // Technologist
+    "👨‍💻", // Male Coder
+    "👩‍💻", // Female Coder
+    "🖥️", // Monitor
+    "📡", // Satellite
+    "⚙️", // Gear (settings or tech)
+    "🔧", // Wrench (development)
+    "📟", // Pager (old tech)
+    "📲", // Mobile phone with an arrow
+    "🛠️", // Hammer and wrench
+    "🔌", // Electric Plug
+    "🌐", // Globe with meridians (internet)
+    "🔒", // Locked padlock (security)
+    "📊", // Bar chart (data)
+    "📈", // Line chart (data)
+    "🗄️", // File cabinet
+    "🔍", // Magnifying glass (search)
+    "🛡️", // Shield (security)
+    "🚀", // Rocket (deployment, speed)
+    "🌍", // Globe (world wide web)
+    "🔗", // Link
+    "📂", // File folder
+  ];
   const fontSize = 16;
   const columns = canvas.width / fontSize; // number of columns for the rain
   const drops = Array.from({ length: columns }).fill(1); // initial y positions for the rain drops
